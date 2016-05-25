@@ -1,0 +1,35 @@
+<idea-plugin version="2">
+    <name>vcs_auto_branch</name>
+    <description><![CDATA[
+        <p>VSC Auto Branch</p>
+        <br/>
+        <b>Features:</b>
+        <ul>
+            <li>Parser and substitute branch number on commit textarea</li>
+        </ul>
+    ]]></description>
+    <version>0.0.1</version>
+    <vendor email="chdg61@gmail.com">chdg61</vendor>
+    <idea-version since-build="133.000"/>
+
+    <project-components>
+        <component>
+            <implementation-class>ru.chdg61.VCSAutoBranchProjectComponent</implementation-class>
+        </component>
+    </project-components>
+
+
+    <depends>com.jetbrains.php</depends>
+    <depends>com.intellij.modules.vcs</depends>
+    <depends>Git4Idea</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable instance="ru.chdg61.SettingsPage"/>
+    </extensions>
+
+    <actions>
+        <action id="chdg61.vcs.insert.branch.number" class="ru.chdg61.actions.InsertBranchNumberAction" text="InsertBranchNumber" description="Insert branch number on filed text commit" icon="/ru/chdg61/icons/icon.png">
+            <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
